@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Data Perkembangan Anak</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F9FA;
+            color: #212529;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
+        }
+        .modal.open {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            text-align: center;
+            max-width: 90%;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+        .modal.open .modal-content {
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+
+    <!-- ==================== Navbar ==================== -->
+    <header class="sticky top-0 z-50 bg-orange-700 text-white shadow-lg">
+      <div class="container mx-auto flex justify-between items-center py-4 px-6">
+        <!-- Logo dan Nama Website -->
+        <a href="index.html" class="flex items-center space-x-3">
+          <!-- Menggunakan SVG sebagai placeholder logo -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-10 w-auto text-yellow-300">
+            <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 6a.75.75 0 0 0-1.5 0v6c0 .414.336.75.75.75h4.5a.75.75 0 0 0 0-1.5h-3.75V6Z" clip-rule="evenodd" />
+          </svg>
+          <h1 class="text-2xl font-bold">Maja Sehat</h1>
+        </a>
+        <!-- Navigasi Utama -->
+        <nav class="hidden md:flex space-x-6">
+          <a href="index.html" class="hover:text-yellow-300 transition-colors duration-300">Beranda</a>
+          <a href="index.html#fitur" class="hover:text-yellow-300 transition-colors duration-300">Fitur</a>
+          <a href="index.html#tentang-section" class="hover:text-yellow-300 transition-colors duration-300">Tentang</a>
+          <a href="index.html#kontak" class="hover:text-yellow-300 transition-colors duration-300">Kontak</a>
+        </nav>
+        <!-- Tombol Menu Mobile -->
+        <button class="md:hidden text-white focus:outline-none">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-lg my-8">
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">Isi Data Perkembangan Anak</h1>
+        <p class="text-center text-gray-600 mb-8">Mohon isi data anak Anda dengan akurat. Informasi ini penting untuk mendeteksi dini risiko stunting.</p>
+
+        <form id="child-data-form" class="space-y-6">
+            
+            <!-- Child Data Section -->
+            <div class="bg-gray-50 p-6 rounded-xl shadow-inner border border-gray-200">
+                <h2 class="text-xl font-semibold mb-4 text-orange-600">Data Anak</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="nama_anak" class="block text-sm font-medium text-gray-700">Nama Lengkap Anak</label>
+                        <input type="text" id="nama_anak" name="nama_anak" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 focus:border-orange-500 focus:ring focus:ring-orange-500 focus:ring-opacity-50">
+                    </div>
+                    <div>
+                        <label for="tanggal_lahir_anak" class="block text-sm font-medium text-gray-700">Tanggal Lahir Anak</label>
+                        <input type="date" id="tanggal_lahir_anak" name="tanggal_lahir_anak" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 focus:border-orange-500 focus:ring focus:ring-orange-500 focus:ring-opacity-50">
+                    </div>
+                    <div>
+                        <label for="jenis_kelamin_anak" class="block text-sm font-medium text-gray-700">Jenis Kelamin Anak</label>
+                        <select id="jenis_kelamin_anak" name="jenis_kelamin_anak" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 focus:border-orange-500 focus:ring focus:ring-orange-500 focus:ring-opacity-50">
+                            <option value="">Pilih</option>
+                            <option value="Laki-laki">Laki-laki</option>
+                            <option value="Perempuan">Perempuan</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="berat_badan" class="block text-sm font-medium text-gray-700">Berat Badan (kg)</label>
+                        <input type="number" id="berat_badan" name="berat_badan" step="0.1" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 focus:border-orange-500 focus:ring focus:ring-orange-500 focus:ring-opacity-50">
+                    </div>
+                    <div>
+                        <label for="tinggi_badan" class="block text-sm font-medium text-gray-700">Tinggi Badan (cm)</label>
+                        <input type="number" id="tinggi_badan" name="tinggi_badan" step="0.1" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 focus:border-orange-500 focus:ring focus:ring-orange-500 focus:ring-opacity-50">
+                    </div>
+                    <div>
+                        <label for="lingkar_kepala" class="block text-sm font-medium text-gray-700">Lingkar Kepala (cm)</label>
+                        <input type="number" id="lingkar_kepala" name="lingkar_kepala" step="0.1" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2 focus:border-orange-500 focus:ring focus:ring-orange-500 focus:ring-opacity-50">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stunting Detection Table -->
+            <div class="bg-gray-50 p-6 rounded-xl shadow-inner border border-gray-200">
+                <h2 class="text-xl font-semibold mb-4 text-orange-600">Panduan Deteksi Stunting</h2>
+                <p class="text-sm text-gray-500 mb-4">Catatan: Tabel ini hanya ilustrasi dan bukan pengganti diagnosis medis.</p>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left table-auto">
+                        <thead>
+                            <tr class="bg-orange-100 text-orange-800">
+                                <th class="py-2 px-4 rounded-tl-lg">Usia (Tahun)</th>
+                                <th class="py-2 px-4">Berat Badan (kg)</th>
+                                <th class="py-2 px-4 rounded-tr-lg">Tinggi Badan (cm)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-200">
+                                <td class="py-2 px-4">0 - 1</td>
+                                <td class="py-2 px-4">&lt; 10</td>
+                                <td class="py-2 px-4">&lt; 75</td>
+                            </tr>
+                            <tr class="border-b border-gray-200 bg-gray-50">
+                                <td class="py-2 px-4">1 - 3</td>
+                                <td class="py-2 px-4">&lt; 15</td>
+                                <td class="py-2 px-4">&lt; 95</td>
+                            </tr>
+                            <tr class="border-b border-gray-200">
+                                <td class="py-2 px-4">3 - 5</td>
+                                <td class="py-2 px-4">&lt; 18</td>
+                                <td class="py-2 px-4">&lt; 105</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="bg-orange-700 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-orange-800 transition-colors">
+                    Simpan Data
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmation-modal" class="modal">
+        <div class="modal-content">
+            <h3 id="modal-title" class="text-2xl font-bold text-gray-800 mb-4"></h3>
+            <p id="modal-message" class="text-gray-600 mb-6"></p>
+            <button id="back-to-home-btn" class="bg-orange-700 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-orange-800 transition-colors">
+                Kembali ke Beranda
+            </button>
+        </div>
+    </div>
+    
+    <!-- ==================== Footer ==================== -->
+    <footer class="bg-orange-800 text-white py-8 mt-auto">
+      <div class="container mx-auto text-center px-6">
+        <p>&copy; 2025 Maja Sehat - Kota Mojokerto</p>
+        <p class="mt-2 text-sm">
+          <a href="mailto:info@majasehat.id" class="hover:text-yellow-300">Email: info@majasehat.id</a> | 
+          <a href="https://instagram.com/majasehat" target="_blank" class="hover:text-yellow-300">Instagram: @majasehat</a>
+        </p>
+      </div>
+    </footer>
+
+    <script>
+        document.getElementById('child-data-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const beratBadan = parseFloat(document.getElementById('berat_badan').value);
+            const tinggiBadan = parseFloat(document.getElementById('tinggi_badan').value);
+            const tanggalLahir = document.getElementById('tanggal_lahir_anak').value;
+            const modalTitle = document.getElementById('modal-title');
+            const modalMessage = document.getElementById('modal-message');
+
+            const today = new Date();
+            const birthDate = new Date(tanggalLahir);
+            const ageInYears = (today - birthDate) / (1000 * 60 * 60 * 24 * 365.25);
+
+            let isStunting = false;
+            // Perbaikan logika: Deteksi stunting berdasarkan tinggi dan berat badan
+            if (ageInYears >= 0 && ageInYears < 1) {
+                if (tinggiBadan < 75 || beratBadan < 10) {
+                    isStunting = true;
+                }
+            } else if (ageInYears >= 1 && ageInYears < 3) {
+                if (tinggiBadan < 95 || beratBadan < 15) {
+                    isStunting = true;
+                }
+            } else if (ageInYears >= 3 && ageInYears <= 5) {
+                if (tinggiBadan < 105 || beratBadan < 18) {
+                    isStunting = true;
+                }
+            }
+
+            if (isStunting) {
+                modalTitle.textContent = "Anak Teridentifikasi Stunting";
+                modalMessage.textContent = "Segera bawa anak Anda ke fasilitas kesehatan terdekat untuk pemeriksaan lebih lanjut.";
+            } else {
+                modalTitle.textContent = "Anak Tidak Teridentifikasi Stunting";
+                modalMessage.textContent = "Data anak Anda normal. Tetap pantau pertumbuhannya secara berkala.";
+            }
+            
+            const modal = document.getElementById('confirmation-modal');
+            modal.classList.add('open');
+        });
+
+        document.getElementById('back-to-home-btn').addEventListener('click', function() {
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>

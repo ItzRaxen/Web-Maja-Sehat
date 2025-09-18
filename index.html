@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maja Sehat - Solusi Digital Kesehatan Kota Mojokerto</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  
+  <style>
+    .icon {
+      width: 2.5rem; /* Ukuran ikon */
+      height: 2.5rem;
+      color: #ea580c; /* Warna ikon */
+    }
+  </style>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- ==================== Custom CSS for Hero Section & Animations ==================== -->
+  <style>
+    .hero-bg {
+      background-image: url('2c85a147f62ea92d09d57402cfe3ae6c.jpeg');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, rgba(234, 88, 12, 0.9), rgba(251, 191, 36, 0.8));
+    }
+    .hero-content {
+      position: relative;
+      z-index: 10;
+    }
+    @keyframes pulseFade {
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.8;
+        transform: scale(1.03);
+      }
+    }
+    .animate-pulse-fade {
+      animation: pulseFade 3s ease-in-out infinite;
+    }
+
+    @keyframes fadeInUpx {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-in-up-1 {
+      animation: fadeInUpx 0.6s ease-out forwards;
+    }
+    .animate-fade-in-up-2 {
+      animation: fadeInUpx 0.6s ease-out 0.2s forwards;
+      opacity: 0;
+    }
+    .animate-fade-in-up-3 {
+      animation: fadeInUpx 0.6s ease-out 0.4s forwards;
+      opacity: 0;
+    }
+    .animate-fade-in-up-4 {
+      animation: fadeInUpx 0.6s ease-out 0.6s forwards;
+      opacity: 0;
+    }
+    .animate-fade-in-up-5 {
+      animation: fadeInUpx 0.6s ease-out 0.8s forwards;
+      opacity: 0;
+    }
+  </style>
+
+</head>
+
+<body class="bg-orange-50 text-gray-800 font-['Poppins']">
+
+  <!-- ==================== Navbar ==================== -->
+  <header class="sticky top-0 z-50 bg-orange-700 text-white shadow-lg">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+      <!-- Logo dan Nama Website -->
+      <a href="#" class="flex items-center space-x-3">
+        <!-- Menggunakan SVG sebagai placeholder logo -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-10 w-auto text-yellow-300">
+          <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 6a.75.75 0 0 0-1.5 0v6c0 .414.336.75.75.75h4.5a.75.75 0 0 0 0-1.5h-3.75V6Z" clip-rule="evenodd" />
+        </svg>
+        <h1 class="text-2xl font-bold">Maja Sehat</h1>
+      </a>
+      <!-- Navigasi Utama -->
+      <nav class="hidden md:flex space-x-6">
+        <a href="#home" class="hover:text-yellow-300 transition-colors duration-300">Beranda</a>
+        <a href="#fitur" class="hover:text-yellow-300 transition-colors duration-300">Fitur</a>
+        <a href="#tentang-section" class="hover:text-yellow-300 transition-colors duration-300">Tentang</a>
+        <a href="#kontak" class="hover:text-yellow-300 transition-colors duration-300">Kontak</a>
+      </nav>
+      <!-- Tombol Menu Mobile -->
+      <button class="md:hidden text-white focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ==================== Hero Section ==================== -->
+  <section id="home" class="hero-bg text-white min-h-screen flex items-center justify-center py-16 md:py-20">
+    <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12 hero-content">
+      
+      <div class="md:w-1/2 text-center md:text-left animate-fade-in-up-1">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">Maja Sehat: Solusi Kesehatan Mojokerto</h2>
+        <p class="text-lg md:text-xl mb-6 max-w-xl mx-auto md:mx-0">
+          Maja Sehat adalah inovasi digital kesehatan untuk Kota Mojokerto. 
+          Terinspirasi dari sejarah kejayaan Majapahit, Maja Sehat hadir dengan semangat membangun masyarakat yang sehat, kuat, dan cerdas melalui teknologi informasi.
+        </p>
+        <a href="#fitur" class="inline-block bg-white text-orange-700 px-8 py-3 rounded-full font-semibold shadow-lg hover:bg-gray-100 transition-colors duration-300 transform hover:scale-105">
+          Mulai Jelajahi Fitur
+        </a>
+      </div>
+      
+      <div class="md:w-1/2 flex justify-center md:justify-end animate-fade-in-up-2">
+        <img src="Gambar Hero Section.png" alt="Pemerintah Kota Mojokerto" class="w-full max-w-sm lg:max-w-xl object-contain rounded-2xl animate-pulse-fade">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== Fitur Utama ==================== -->
+  <section id="fitur" class="py-16 bg-white animate-fade-in-up-2">
+    <div class="container mx-auto px-6">
+      <h3 class="text-3xl md:text-4xl font-bold text-center text-orange-700 mb-12">Fitur Unggulan</h3>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
+        <div class="bg-orange-50 rounded-2xl shadow-md p-8 hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2">
+          <div class="flex justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trending-up"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+          </div>
+          <h4 class="text-xl font-semibold text-orange-700 mb-2">Tracking Tumbuh Kembang Anak</h4>
+          <p class="text-gray-600">Monitor pertumbuhan anak secara digital dengan grafik dan reminder imunisasi.</p>
+        </div>
+        
+        <div class="bg-orange-50 rounded-2xl shadow-md p-8 hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2">
+          <div class="flex justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone-call"><path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1.55 7.15c-1.48-.82-1.87-3.01-.6-4.99l.86-1.35c.7-.1 1.43-.08 2.1-.02.43.04.83.1 1.18.17.6.1 1.15.22 1.63.38.38.12.72.29.98.48.55.4 1 1.05 1.25 1.84.15.5.15 1.03 0 1.53-.15.5-.39.9-.7 1.25-.3.35-.67.62-1.07.8-.4.18-.8.3-1.18.35-.38.05-.75.07-1.1.07-.4 0-.8-.02-1.18-.07-1.43-.22-2.73-.78-3.9-1.63L8.6 15.5a13.3 13.3 0 0 1-.2-1.7c-.15-.7-.25-1.4-.3-2.1-.05-.7-.07-1.4-.07-2.1v-.15c.04-.38.1-.75.17-1.1.07-.35.15-.68.25-.98.1-.3.2-.55.3-.77.1-.2.2-.38.3-.55.1-.15.2-.28.3-.4-.25-1.4-.33-2.8-.25-4.2l.05-.9a4.8 4.8 0 0 1 1.17-2.45c.8-.8 1.8-1.3 2.9-1.55zM12 2v20"></path></svg>
+          </div>
+          <h4 class="text-xl font-semibold text-orange-700 mb-2">Call Darurat</h4>
+          <p class="text-gray-600">Satu klik untuk menghubungi ambulans & layanan darurat Mojokerto.</p>
+        </div>
+        
+        <div class="bg-orange-50 rounded-2xl shadow-md p-8 hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2">
+          <div class="flex justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          </div>
+          <h4 class="text-xl font-semibold text-orange-700 mb-2">Chat Asisten AI</h4>
+          <p class="text-gray-600">Dapatkan jawaban cepat seputar kesehatan dari chatbot cerdas.</p>
+        </div>
+        
+        <div class="bg-orange-50 rounded-2xl shadow-md p-8 hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2">
+          <div class="flex justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          </div>
+          <h4 class="text-xl font-semibold text-orange-700 mb-2">Booking Janji Temu</h4>
+          <p class="text-gray-600">Pesan jadwal dengan puskesmas & rumah sakit di Mojokerto dengan mudah.</p>
+        </div>
+        
+        <div class="bg-orange-50 rounded-2xl shadow-md p-8 hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2">
+          <div class="flex justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-credit-card"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+          </div>
+          <h4 class="text-xl font-semibold text-orange-700 mb-2">Integrasi BPJS</h4>
+          <p class="text-gray-600">Cek kepesertaan, klaim, dan riwayat layanan BPJS secara online.</p>
+        </div>
+        
+        <div class="bg-orange-50 rounded-2xl shadow-md p-8 hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2">
+          <div class="flex justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-award"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+          </div>
+          <h4 class="text-xl font-semibold text-orange-700 mb-2">Gamifikasi Kesehatan</h4>
+          <p class="text-gray-600">Dapatkan poin reward dari aktivitas sehat & tukarkan dengan hadiah menarik.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tombol Aksi di bawah Fitur Unggulan -->
+  <div class="container mx-auto px-6 py-20 text-center animate-fade-in-up-3">
+    <div class="bg-white rounded-xl shadow-lg p-8 md:p-12 max-w-4xl w-full mx-auto">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl md:text-4xl font-bold text-orange-700 mb-4">Mulai Perjalanan Sehat Anda Sekarang!</h2>
+        <p class="text-lg text-gray-600">Isi data diri dan kesehatan anak Anda untuk mendapatkan pemantauan pertumbuhan yang lebih personal.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Kartu Isi Data Pasien -->
+        <div class="bg-gray-50 rounded-lg shadow-sm p-6 flex flex-col items-center justify-between transition-shadow duration-300 hover:shadow-md border border-gray-200">
+          <h3 class="text-2xl font-semibold text-gray-800 mb-2">Isi Data Pasien</h3>
+          <p class="text-gray-600 text-center mb-6">Lengkapi informasi pribadi dan biodata pasien.</p>
+          <a href="datapasien.html" class="inline-block bg-orange-700 text-white px-6 py-3 rounded-full font-semibold hover:bg-orange-800 transition-colors duration-300">
+            Isi Sekarang
+          </a>
+        </div>
+
+        <!-- Kartu Isi Data Kembang Anak -->
+        <div class="bg-gray-50 rounded-lg shadow-sm p-6 flex flex-col items-center justify-between transition-shadow duration-300 hover:shadow-md border border-gray-200">
+          <h3 class="text-2xl font-semibold text-gray-800 mb-2">Isi Data Kembang Anak</h3>
+          <p class="text-gray-600 text-center mb-6">Masukkan data pertumbuhan anak untuk deteksi dini stunting.</p>
+          <a href="datakembanganak.html" class="inline-block bg-orange-700 text-white px-6 py-3 rounded-full font-semibold hover:bg-orange-800 transition-colors duration-300">
+            Isi Sekarang
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== Bagian untuk Jadwal Janji Temu ==================== -->
+  <section id="janji-temu" class="py-16 bg-white animate-fade-in-up-4">
+    <div class="container mx-auto px-6 text-center">
+      <h3 class="text-3xl font-bold text-orange-700 mb-12">Jadwal Janji Temu</h3>
+      
+      <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg border border-gray-200 p-6 md:p-8">
+        <!-- Kalender -->
+        <div class="flex items-center justify-between mb-6">
+          <button class="text-orange-700 hover:text-orange-900 transition-colors duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+          </button>
+          <h4 class="text-xl md:text-2xl font-semibold text-gray-800">September 2025</h4>
+          <button class="text-orange-700 hover:text-orange-900 transition-colors duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+          </button>
+        </div>
+        
+        <div class="overflow-x-auto">
+          <table class="w-full text-center text-gray-700">
+            <thead>
+              <tr class="font-bold text-gray-500 text-sm">
+                <th class="py-2 px-1">Min</th>
+                <th class="py-2 px-1">Sen</th>
+                <th class="py-2 px-1">Sel</th>
+                <th class="py-2 px-1">Rab</th>
+                <th class="py-2 px-1">Kam</th>
+                <th class="py-2 px-1">Jum</th>
+                <th class="py-2 px-1">Sab</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="py-2 px-1 text-gray-400">31</td>
+                <td class="py-2 px-1 hover:bg-orange-100 rounded-lg transition-colors duration-200"><button class="w-full py-2">1</button></td>
+                <td class="py-2 px-1 hover:bg-orange-100 rounded-lg transition-colors duration-200"><button class="w-full py-2">2</button></td>
+                <td class="py-2 px-1 hover:bg-orange-100 rounded-lg transition-colors duration-200"><button class="w-full py-2">3</button></td>
+                <td class="py-2 px-1 hover:bg-orange-100 rounded-lg transition-colors duration-200"><button class="w-full py-2">4</button></td>
+                <td class="py-2 px-1 hover:bg-orange-100 rounded-lg transition-colors duration-200"><button class="w-full py-2">5</button></td>
+                <td class="py-2 px-1 hover:bg-orange-100 rounded-lg transition-colors duration-200"><button class="w-full py-2">6</button></td>
+              </tr>
+              <tr>
+                <td class="py-2 px-1 hover:bg-orange-100 rounded-lg transition-colors duration-200"><button class="w-full py-2">7</button></td>
+                <td class="py-2 px-1 bg-orange-200 rounded-lg text-orange-700 font-bold"><button class="w-full py-2">8</button></td>
+                <td class="py-2 px-1 hover:bg-orange-100 rounded-lg transition-colors duration-200"><button class="w-full py-2">9</button></td>
+                <td class="py-2 px-1 hover:bg-orange-100 rounded-lg transition-colors duration-200"><button class="w-full py-2">10</button></td>
+                <td class="py-2 px-1 hover:bg-orange-100 rounded-lg transition-colors duration-200"><button class="w-full py-2">11</button></td>
+                <td class="py-2 px-1 hover:bg-orange-100 rounded-lg transition-colors duration-200"><button class="w-full py-2">12</button></td>
+                <td class="py-2 px-1 hover:bg-orange-100 rounded-lg transition-colors duration-200"><button class="w-full py-2">13</button></td>
+              </tr>
+              <tr>
+                <td class="py-2 px-1 hover:bg-orange-100 rounded-lg transition-colors duration-200"><button class="w-full py-2">14</button></td>
+                <td class="py-2 px-1 hover:bg-orange-100 rounded-lg transition-colors duration-200"><button class="w-full py-2">15</button></td>
+                <td class="py-2 px-1 hover:bg-orange-100 rounded-lg transition-colors duration-200"><button class="w-full py-2">16</button></td>
+                <td class="py-2 px-1 hover:bg-orange-100 rounded-lg transition-colors duration-200"><button class="w-full py-2">17</button></td>
+                <td class="py-2 px-1 hover:bg-orange-100 rounded-lg transition-colors duration-200"><button class="w-full py-2">18</button></td>
+                <td class="py-2 px-1 hover:bg-orange-100 rounded-lg transition-colors duration-200"><button class="w-full py-2">19</button></td>
+                <td class="py-2 px-1 hover:bg-orange-100 rounded-lg transition-colors duration-200"><button class="w-full py-2">20</button></td>
+              </tr>
+              <tr>
+                <td class="py-2 px-1 hover:bg-orange-100 rounded-lg transition-colors duration-200"><button class="w-full py-2">21</button></td>
+                <td class="py-2 px-1 hover:bg-orange-100 rounded-lg transition-colors duration-200"><button class="w-full py-2">22</button></td>
+                <td class="py-2 px-1 hover:bg-orange-100 rounded-lg transition-colors duration-200"><button class="w-full py-2">23</button></td>
+                <td class="py-2 px-1 hover:bg-orange-100 rounded-lg transition-colors duration-200"><button class="w-full py-2">24</button></td>
+                <td class="py-2 px-1 hover:bg-orange-100 rounded-lg transition-colors duration-200"><button class="w-full py-2">25</button></td>
+                <td class="py-2 px-1 hover:bg-orange-100 rounded-lg transition-colors duration-200"><button class="w-full py-2">26</button></td>
+                <td class="py-2 px-1 hover:bg-orange-100 rounded-lg transition-colors duration-200"><button class="w-full py-2">27</button></td>
+              </tr>
+              <tr>
+                <td class="py-2 px-1 hover:bg-orange-100 rounded-lg transition-colors duration-200"><button class="w-full py-2">28</button></td>
+                <td class="py-2 px-1 hover:bg-orange-100 rounded-lg transition-colors duration-200"><button class="w-full py-2">29</button></td>
+                <td class="py-2 px-1 hover:bg-orange-100 rounded-lg transition-colors duration-200"><button class="w-full py-2">30</button></td>
+                <td class="py-2 px-1 text-gray-400">1</td>
+                <td class="py-2 px-1 text-gray-400">2</td>
+                <td class="py-2 px-1 text-gray-400">3</td>
+                <td class="py-2 px-1 text-gray-400">4</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Daftar Janji Temu -->
+        <div class="mt-8 text-left">
+          <h4 class="text-xl font-semibold text-gray-800 mb-4">Daftar Janji Temu</h4>
+          <div class="bg-gray-100 p-4 rounded-lg shadow-inner">
+            <p class="font-semibold text-gray-700">Senin, 8 September 2025</p>
+            <p class="text-sm">Janji Temu: Dr. Firas Ruendi</p>
+            <p class="text-sm">Waktu: 10:00 AM</p>
+            <p class="text-sm">Lokasi: Puskesmas Kranggan</p>
+          </div>
+        </div>
+
+        <a href="buatjanji.html" class="mt-8 w-full block bg-orange-700 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-orange-800 transition-colors duration-300">
+          Tambah Janji Temu Baru
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- ==================== Grafik Stunting ==================== -->
+  <section class="py-16 bg-white animate-fade-in-up-5">
+    <div class="container mx-auto px-6 text-center">
+      <h3 class="text-3xl font-bold text-orange-700 mb-6">Tren Prevalensi Stunting di Kota Mojokerto</h3>
+      <p class="mb-8">Angka prevalensi stunting terus menurun secara signifikan setiap tahunnya.</p>
+      
+      <!-- Kontainer untuk grafik -->
+      <div id="stunting-chart" class="max-w-4xl mx-auto rounded-lg shadow-lg p-6 bg-gray-50"></div>
+    </div>
+  </section>
+
+  <!-- Bagian Kosong untuk link "Tentang" -->
+  <section id="tentang-section" class="hidden"></section> 
+  
+  <!-- ==================== Footer ==================== -->
+  <footer id="kontak" class="bg-orange-800 text-white py-8">
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-6">
+      <!-- Kolom 1: Profil Kota -->
+      <div class="text-left">
+        <div class="flex items-center space-x-2 mb-4">
+          <img src="https://via.placeholder.com/40x40/fff/000?text=Logo" alt="Logo Kota Mojokerto" class="h-10 w-10">
+          <h4 class="text-xl font-bold">Kota Mojokerto</h4>
+        </div>
+        <p class="text-sm mb-2">
+          Kota Mojokerto adalah sebuah kota di Provinsi Jawa Timur, Indonesia.
+          Kota ini terletak 50 km barat daya Surabaya.
+        </p>
+        <p class="text-sm">
+          Jl. Gajah Mada, No. 145, Kota Mojokerto
+          Jawa Timur
+        </p>
+      </div>
+
+      <!-- Kolom 2: Peta -->
+      <div class="text-left">
+        <h4 class="text-xl font-bold mb-4">Peta Lokasi</h4>
+        <div class="h-40 bg-gray-700 rounded-lg overflow-hidden">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15796.883906161947!2d112.44390666014234!3d-7.46820256242378!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e780d603a129d5b%3A0x6b44a49c4021a8f9!2sMojokerto%2C%20Kec.%20Prajurit%20Kulon%2C%20Kota%20Mojokerto%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1695420348749!5m2!1sid!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+
+      <!-- Kolom 3: Statistik dan Newsletter -->
+      <div class="text-left">
+        <h4 class="text-xl font-bold mb-4">Statistik & Berita</h4>
+        <p class="text-3xl font-bold text-yellow-300">1,706,900</p>
+        <p class="text-sm mb-4">TOTAL PENGUNJUNG</p>
+        
+        <p class="text-sm mb-2">Daftar untuk mendapatkan berita terbaru:</p>
+        <form class="flex">
+          <input type="email" placeholder="Enter your Email" class="px-4 py-2 w-full rounded-l-md text-gray-800 focus:outline-none">
+          <button type="submit" class="bg-yellow-500 text-black font-semibold px-4 py-2 rounded-r-md hover:bg-yellow-600 transition-colors">
+            Subscribe
+          </button>
+        </form>
+      </div>
+
+      <!-- Kolom 4: Media Sosial -->
+      <div class="text-left">
+        <h4 class="text-xl font-bold mb-4">Ikuti Kami</h4>
+        <div class="flex flex-col space-y-2">
+          <a href="#" class="flex items-center space-x-2 text-sm hover:text-yellow-300">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" class="h-5 w-5"><path d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h352a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48zm-48.9 158.8H344c10-1 14 15 0 15h-24v73h-58v-73h-24c-10-1-14 15 0 15h24v-64c0-21 16-36 36-36h21c10-1 14 15 0 15h-21c-4 0-6 2-6 6v28zM312 256v96a16 16 0 0 1-16 16h-48a16 16 0 0 1-16-16v-96a16 16 0 0 1 16-16h48a16 16 0 0 1 16 16zm-176-16h-58v73h-24c-10-1-14 15 0 15h24v-73h24c10-1 14 15 0 15zM96 256v96a16 16 0 0 1-16 16h-48a16 16 0 0 1-16-16v-96a16 16 0 0 1 16-16h48a16 16 0 0 1 16 16z"/></svg>
+            <span>Facebook</span>
+          </a>
+          <a href="#" class="flex items-center space-x-2 text-sm hover:text-yellow-300">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" class="h-5 w-5"><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm-45.7 33.6c-24.5-5.9-49.3-8.8-74.8-8.8-15.4 0-30.8 1.4-45.9 4.2-12.8 2.4-25.2 5.5-37.4 9.4-4.8 1.5-9.6 3.1-14.4 4.8-.8.3-1.6.6-2.4 1-5.7 2.4-11.2 5.1-16.7 8-1.6.9-3.2 1.8-4.8 2.8-5.3 3.5-10.4 7.4-15.5 11.6l-3.3 2.9-1.9 1.7c-.7.6-1.4 1.2-2.1 1.8-2 1.9-3.9 3.9-5.7 6.1-1.7 2-3.4 4.1-5 6.2-2.3 3.1-4.6 6.3-6.7 9.6-1.5 2.4-2.9 4.8-4.3 7.3-1.9 3.4-3.7 6.8-5.3 10.4-1.2 2.7-2.3 5.4-3.4 8.2-1.3 3.4-2.6 6.8-3.7 10.3-1.1 3.5-2.2 7-3.1 10.6-.7 2.8-1.4 5.6-2 8.4-.7 3.3-1.4 6.7-1.9 10.1-.4 3.4-1.2 7-1.2 10.4 0 13.5 8.1 27.2 24.3 36.3 33.7 19.3 72 29.8 112 29.8 26.6 0 52.8-3.9 77.4-11.6 4.7-1.5 9.4-3.1 14.1-4.8 1.2-.4 2.4-.8 3.5-1.2 5.7-1.9 11.2-4.1 16.7-6.5 1.7-.8 3.4-1.6 5-2.5 5.3-3.1 10.5-6.6 15.6-10.4l3.3-2.6 1.9-1.5c.6-.5 1.2-1 1.8-1.6 2.1-1.8 4.1-3.6 6-5.6 1.7-1.9 3.3-3.8 4.9-5.9 2.5-3.1 4.9-6.3 7-9.7 1.5-2.3 2.9-4.7 4.2-7.1 2.2-3.4 4.3-6.8 6-10.4 1.3-2.7 2.5-5.5 3.6-8.3 1.2-3.5 2.2-7 3-10.6.7-2.7 1.3-5.5 1.8-8.3.6-3.3 1-6.7 1-10.2-.1-13.4-8.2-27.1-24.5-36.2zm-128.3-239.5c-42.4 0-77.9 17.5-103 45.4-25.1 28-39 65.5-39 107.1 0 15.6 1.8 30.8 5.4 45.4 4.3 17.6 10.9 34.6 20.3 50.8 9.3 16.2 20.5 31.4 33.4 45.4 1.7 1.9 3.4 3.9 5.2 5.8 4 4.3 8.3 8.4 12.7 12.5l2 1.9 3.3 3c4.7 4.3 9.6 8.4 14.7 12.4 1.1.8 2.2 1.6 3.4 2.4 4.7 3.2 9.7 6.2 14.7 9.1 1.2.7 2.5 1.4 3.7 2 4.4 2.6 9 5 13.7 7.2 1.8.8 3.7 1.6 5.5 2.3 4.8 1.9 9.8 3.7 14.9 5.2 1 .3 2 .6 3 .9 4.7 1.3 9.5 2.4 14.3 3.3 1.1.2 2.2.3 3.4.4 1.7.2 3.4.3 5.2.3 2.8 0 5.6-.1 8.4-.3 15.1-1.3 29.8-4.4 44-9.3 2.4-.8 4.7-1.6 7-2.6 6.3-2.8 12.4-6 18.5-9.6 2.3-1.4 4.6-2.9 6.8-4.5 4.3-3.2 8.5-6.6 12.6-10.1l3.3-2.8 1.9-1.6c.7-.6 1.3-1.2 2-1.9 2-1.7 4-3.5 5.9-5.5 1.7-1.9 3.4-3.8 5-5.9 2.4-3.1 4.7-6.3 6.9-9.6 1.6-2.4 3-4.8 4.4-7.3 2-3.4 3.7-6.8 5.3-10.4 1.2-2.7 2.3-5.4 3.4-8.2 1.3-3.4 2.6-6.8 3.7-10.3 1.1-3.5 2.2-7 3.1-10.6.7-2.8 1.4-5.6 2-8.4.7-3.3 1.4-6.7 1.9-10.1.4-3.4 1.2-7 1.2-10.4 0-38.4-15.6-74.8-45.4-100.9C338.4 50.4 286.9 32 224 32zM128 128a96 96 0 1 1 192 0 96 96 0 1 1-192 0z"/></svg>
+            <span>Instagram</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="bg-gray-900 text-center text-sm py-4">
+      <p>&copy; 2025 All Rights Reserved By Diskominfo Kota Mojokerto.</p>
+    </div>
+  </footer>
+
+  <!-- ==================== Chat Assistant Feature ==================== -->
+  <!-- Floating Chat Button -->
+  <button id="chat-toggle" class="fixed bottom-6 right-6 p-4 bg-orange-700 text-white rounded-full shadow-lg hover:bg-orange-800 transition-colors duration-300 z-50">
+    <svg id="chat-icon-open" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+    </svg>
+    <svg id="chat-icon-close" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 hidden transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  </button>
+
+  <!-- Chat Minibar -->
+  <div id="chat-container" class="fixed bottom-24 right-6 w-80 md:w-96 h-[500px] bg-white rounded-lg shadow-2xl flex flex-col hidden z-50 border border-gray-200">
+    <!-- Chat Header -->
+    <div class="bg-orange-700 text-white p-4 rounded-t-lg flex items-center justify-between">
+      <div class="flex items-center space-x-2">
+        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-orange-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.3c-2.4 0-4.3-1.9-4.3-4.3V6.2c0-2.4 1.9-4.3 4.3-4.3s4.3 1.9 4.3 4.3v7.8c0 2.4-1.9 4.3-4.3 4.3zm0 0v-4.3m0 4.3c3 0 5.4 2.4 5.4 5.4s-2.4 5.4-5.4 5.4-5.4-2.4-5.4-5.4 2.4-5.4 5.4-5.4z" />
+          </svg>
+        </div>
+        <div>
+          <h4 class="font-bold">Maja Sehat AI</h4>
+          <p class="text-sm text-gray-200">Online</p>
+        </div>
+      </div>
+      <button id="chat-close" class="text-white hover:text-gray-300">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Chat Body (Message Container) -->
+    <div id="chat-messages" class="flex-grow p-4 overflow-y-auto space-y-4">
+      <!-- Welcome message from AI -->
+      <div class="flex justify-start">
+        <div class="bg-gray-200 text-gray-800 p-3 rounded-lg max-w-[80%]">
+          Halo! Saya Maja Sehat AI. Ada yang bisa saya bantu terkait masalah kesehatan Anda?
+        </div>
+      </div>
+    </div>
+
+    <!-- Chat Footer (Input Area) -->
+    <div class="p-4 bg-gray-100 rounded-b-lg border-t border-gray-200">
+      <div class="flex items-center space-x-2">
+        <input type="text" id="chat-input" placeholder="Tulis pesan Anda..." class="flex-grow p-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500">
+        <button id="chat-send" class="p-2 bg-orange-700 text-white rounded-full hover:bg-orange-800 transition-colors duration-300">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== JavaScript for Chat Assistant ==================== -->
+  <script>
+    const chatToggle = document.getElementById('chat-toggle');
+    const chatContainer = document.getElementById('chat-container');
+    const chatClose = document.getElementById('chat-close');
+    const chatInput = document.getElementById('chat-input');
+    const chatSend = document.getElementById('chat-send');
+    const chatMessages = document.getElementById('chat-messages');
+    const chatIconOpen = document.getElementById('chat-icon-open');
+    const chatIconClose = document.getElementById('chat-icon-close');
+
+    // Toggle chat visibility
+    function toggleChat() {
+      chatContainer.classList.toggle('hidden');
+      chatIconOpen.classList.toggle('hidden');
+      chatIconClose.classList.toggle('hidden');
+    }
+
+    chatToggle.addEventListener('click', toggleChat);
+    chatClose.addEventListener('click', toggleChat);
+
+    // Function to add a message to the chat
+    function addMessage(text, isUser = true) {
+      const messageDiv = document.createElement('div');
+      messageDiv.classList.add('flex', isUser ? 'justify-end' : 'justify-start');
+      
+      const messageBubble = document.createElement('div');
+      messageBubble.classList.add('p-3', 'rounded-lg', 'max-w-[80%]');
+      messageBubble.textContent = text;
+      
+      if (isUser) {
+        messageBubble.classList.add('bg-orange-500', 'text-white');
+      } else {
+        messageBubble.classList.add('bg-gray-200', 'text-gray-800');
+      }
+      
+      messageDiv.appendChild(messageBubble);
+      chatMessages.appendChild(messageDiv);
+      
+      // Scroll to the bottom of the chat
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    // Function to simulate AI response
+    function getAiResponse(message) {
+      const lowerCaseMessage = message.toLowerCase();
+      let response = "Maaf, saya tidak mengerti. Silakan ajukan pertanyaan lain.";
+
+      if (lowerCaseMessage.includes("halo") || lowerCaseMessage.includes("hai") || lowerCaseMessage.includes("assalamualaikum")) {
+        response = "Halo! Saya Maja Sehat AI. Ada yang bisa saya bantu terkait layanan Maja Sehat atau kesehatan Anda?";
+      } else if (lowerCaseMessage.includes("lokasi puskesmas")) {
+        response = "Anda bisa menggunakan fitur 'Pencarian Puskesmas' di aplikasi kami. Atau silakan cek alamat puskesmas terdekat di website Dinas Kesehatan Kota Mojokerto.";
+      } else if (lowerCaseMessage.includes("booking")) {
+        response = "Untuk booking janji temu, silakan masuk ke halaman 'Booking Janji Temu' dan pilih puskesmas atau rumah sakit yang diinginkan.";
+      } else if (lowerCaseMessage.includes("terima kasih") || lowerCaseMessage.includes("makasih")) {
+        response = "Sama-sama! Senang bisa membantu.";
+      } else if (lowerCaseMessage.includes("bpjs")) {
+        response = "Fitur Integrasi BPJS akan segera tersedia. Anda bisa cek status dan riwayat BPJS Anda secara online melalui fitur tersebut.";
+      } else if (lowerCaseMessage.includes("imunisasi")) {
+        response = "Kami memiliki fitur Tracking Tumbuh Kembang Anak yang bisa mengingatkan jadwal imunisasi anak Anda.";
+      }
+
+      // Simulate a typing delay for a more realistic chat experience
+      setTimeout(() => {
+        addMessage(response, false);
+      }, 500);
+    }
+    
+    // Event listener for sending a message
+    function sendMessage() {
+      const message = chatInput.value.trim();
+      if (message === "") return;
+      
+      addMessage(message, true);
+      chatInput.value = '';
+      
+      getAiResponse(message);
+    }
+    
+    chatSend.addEventListener('click', sendMessage);
+    chatInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        sendMessage();
+      }
+    });
+
+  </script>
+
+  <script>
+    const dataStunting = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "description": "Tren Prevalensi Stunting di Kota Mojokerto (2020-2025)",
+      "data": {
+        "values": [
+          {"tahun": 2019, "prevalensi": 37},
+          {"tahun": 2020, "prevalensi": 30.8},
+          {"tahun": 2021, "prevalensi": 27.5},
+          {"tahun": 2022, "prevalensi": 24.2},
+          {"tahun": 2023, "prevalensi": 21.6},
+          {"tahun": 2024, "prevalensi": 19.7}
+        ]
+      },
+      "width": 600,
+      "height": 350,
+      "mark": {
+        "type": "bar",
+        "tooltip": true
+      },
+      "encoding": {
+        "x": {
+          "field": "tahun",
+          "type": "ordinal",
+          "title": "Tahun",
+          "axis": {"format": "d"}
+        },
+        "y": {
+          "field": "prevalensi",
+          "type": "quantitative",
+          "title": "Prevalensi Stunting (%)"
+        },
+        "color": {"value": "#ea580c"}
+      }
+    };
+    
+    vegaEmbed('#stunting-chart', dataStunting);
+  </script>
+</body>
+</html>
