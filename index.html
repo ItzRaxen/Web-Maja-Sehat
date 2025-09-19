@@ -99,9 +99,9 @@
       <!-- Logo dan Nama Website -->
       <a href="#" class="flex items-center space-x-3">
         <!-- Menggunakan SVG sebagai placeholder logo -->
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-10 w-auto text-yellow-300">
+        <img src="a1ee3d6283faf8ea08c97a0ec6b10d81.png" viewBox="0 0 24 24" fill="currentColor" class="h-10 w-auto text-yellow-300">
           <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 6a.75.75 0 0 0-1.5 0v6c0 .414.336.75.75.75h4.5a.75.75 0 0 0 0-1.5h-3.75V6Z" clip-rule="evenodd" />
-        </svg>
+        </img>
         <h1 class="text-2xl font-bold">Maja Sehat</h1>
       </a>
       <!-- Navigasi Utama -->
@@ -112,11 +112,23 @@
         <a href="#kontak" class="hover:text-yellow-300 transition-colors duration-300">Kontak</a>
       </nav>
       <!-- Tombol Menu Mobile -->
-      <button class="md:hidden text-white focus:outline-none">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-        </svg>
-      </button>
+      <!-- Tombol Menu Mobile -->
+            <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+              </svg>
+            </button>
+
+            <!-- Menu Mobile (Hidden by default) -->
+            <div id="mobile-menu" class="hidden md:hidden bg-orange-600 transition-all duration-300 ease-in-out">
+              <nav class="flex flex-col space-y-2 p-4">
+                <a href="#home" class="hover:text-yellow-300">Beranda</a>
+                <a href="#fitur" class="hover:text-yellow-300">Fitur</a>
+                <a href="#tentang-section" class="hover:text-yellow-300">Tentang</a>
+                <a href="#kontak" class="hover:text-yellow-300">Kontak</a>
+              </nav>
+            </div>
+
     </div>
   </header>
 
@@ -339,69 +351,224 @@
 
   <!-- Bagian Kosong untuk link "Tentang" -->
   <section id="tentang-section" class="hidden"></section> 
+
+    <!-- ==================== Fitur Edukasi Interaktif ==================== -->
+  <section id="edukasi" class="py-16 bg-orange-50">
+    <div class="container mx-auto px-6">
+      <h3 class="text-3xl md:text-4xl font-bold text-center text-orange-700 mb-12">
+        Edukasi Interaktif
+      </h3>
+
+      <!-- Artikel Kesehatan Singkat -->
+      <div class="mb-16">
+        <h4 class="text-2xl font-semibold text-gray-800 mb-6">Artikel Kesehatan</h4>
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Card Artikel -->
+          <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
+            <img src="19c5b3a795cc23cdc0774caf1e075786.jpg" alt="Tips Gizi" class="rounded-lg mb-4">
+            <h5 class="text-xl font-bold text-orange-700 mb-2">Tips Gizi Seimbang</h5>
+            <p class="text-gray-600 mb-4">Panduan sederhana menjaga pola makan sehat untuk seluruh keluarga.</p>
+            <a href="#" class="text-orange-700 font-semibold hover:underline">Baca Selengkapnya</a>
+          </div>
+
+          <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
+            <img src="10-olahraga-ringan.jpg" alt="Olahraga" class="rounded-lg mb-4">
+            <h5 class="text-xl font-bold text-orange-700 mb-2">Olahraga Ringan</h5>
+            <p class="text-gray-600 mb-4">Manfaat olahraga ringan setiap hari bagi kesehatan tubuh.</p>
+            <a href="#" class="text-orange-700 font-semibold hover:underline">Baca Selengkapnya</a>
+          </div>
+
+          <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
+            <img src="mental-health-dan-pentingnya-untuk-kesejahteraan-hidup-0-alodokter.jpg" alt="Mental Health" class="rounded-lg mb-4">
+            <h5 class="text-xl font-bold text-orange-700 mb-2">Mental Health</h5>
+            <p class="text-gray-600 mb-4">Cara sederhana menjaga kesehatan mental di tengah kesibukan.</p>
+            <a href="#" class="text-orange-700 font-semibold hover:underline">Baca Selengkapnya</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video Edukasi Singkat -->
+      <div class="mb-16">
+        <h4 class="text-2xl font-semibold text-gray-800 mb-6">Video Edukasi</h4>
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Card Video -->
+          <div class="relative bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+            <img src="4420bfce-cara-mencuci-tangan-650x367.jpg" alt="Cuci Tangan" class="w-full h-48 object-cover">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <button class="bg-orange-600 text-white p-4 rounded-full shadow-lg hover:bg-orange-700 transition">
+                ▶
+              </button>
+            </div>
+            <div class="p-4">
+              <h5 class="text-lg font-bold text-orange-700">Cara Mencuci Tangan</h5>
+            </div>
+          </div>
+
+          <div class="relative bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+            <img src="ispa-pada-bayi-750x375.jpg" alt="ISPA" class="w-full h-48 object-cover">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <button class="bg-orange-600 text-white p-4 rounded-full shadow-lg hover:bg-orange-700 transition">
+                ▶
+              </button>
+            </div>
+            <div class="p-4">
+              <h5 class="text-lg font-bold text-orange-700">Pencegahan ISPA</h5>
+            </div>
+          </div>
+
+          <div class="relative bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+            <img src="feb-4-1.jpg" alt="Imunisasi" class="w-full h-48 object-cover">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <button class="bg-orange-600 text-white p-4 rounded-full shadow-lg hover:bg-orange-700 transition">
+                ▶
+              </button>
+            </div>
+            <div class="p-4">
+              <h5 class="text-lg font-bold text-orange-700">Pentingnya Imunisasi</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Notifikasi Push -->
+      <div>
+        <h4 class="text-2xl font-semibold text-gray-800 mb-6">Notifikasi Kesehatan</h4>
+        <div class="space-y-4">
+          <div class="flex items-center bg-white shadow rounded-lg p-4">
+            <span class="text-orange-600 mr-3">🔔</span>
+            <p class="text-gray-700">Jadwal Imunisasi: Senin, 22 Sept 2025</p>
+          </div>
+          <div class="flex items-center bg-white shadow rounded-lg p-4">
+            <span class="text-orange-600 mr-3">🔔</span>
+            <p class="text-gray-700">Posyandu Kranggan buka jam 09.00</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- ==================== Layanan Aduan Fasilitas Kesehatan ==================== -->
+<section id="aduan" class="py-16 bg-white">
+  <div class="container mx-auto px-6">
+    <h3 class="text-3xl md:text-4xl font-bold text-center text-orange-700 mb-12">
+      Layanan Aduan Fasilitas Kesehatan
+    </h3>
+
+    <div class="max-w-3xl mx-auto bg-gray-50 rounded-xl shadow-lg p-8">
+      <p class="text-gray-700 mb-6 text-center">
+        Jika Anda menemukan kendala atau masalah di puskesmas, rumah sakit, atau fasilitas kesehatan di Kota Mojokerto, silakan laporkan melalui form berikut:
+      </p>
+
+      <form action="#" method="POST" class="space-y-6">
+        <!-- Nama Lengkap -->
+        <div>
+          <label for="nama" class="block text-sm font-semibold text-gray-700 mb-2">Nama Lengkap</label>
+          <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap Anda"
+            class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:outline-none">
+        </div>
+
+        <!-- Email -->
+        <div>
+          <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+          <input type="email" id="email" name="email" placeholder="Masukkan email aktif"
+            class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:outline-none">
+        </div>
+
+        <!-- Pilih Fasilitas -->
+        <div>
+          <label for="fasilitas" class="block text-sm font-semibold text-gray-700 mb-2">Fasilitas Kesehatan</label>
+          <select id="fasilitas" name="fasilitas"
+            class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:outline-none">
+            <option>RSUD Dr. Wahidin Sudiro Husodo</option>
+            <option>Rumah Sakit Reksa Waluyo</option>
+            <option>Rumah Sakit Kamar Medika EmpunalA</option>
+            <option>Rumah Sakit Gatoel</option>
+            <option>RSI Hasanah Muhammadiyah</option>
+            <option>RS Emma</option>
+            <option>Klinik Kuncup Ceria</option>
+            <option>Poli Bhayangkara Kota Mojokerto</option>
+            <option>Puskesmas Meri</option>
+            <option>Puskesmas Prajurit Kulon</option>
+            <option>Puskesmas Blooto</option>
+            <option>Puskesmas Kranggan</option>
+            <option>Puskesmas Mentikan</option>
+            <option>Puskesmas Gedongan</option>
+            <option>Puskesmas Wates</option>
+          </select>
+        </div>
+
+        <!-- Isi Aduan -->
+        <div>
+          <label for="aduan" class="block text-sm font-semibold text-gray-700 mb-2">Isi Aduan</label>
+          <textarea id="aduan" name="aduan" rows="4" placeholder="Tuliskan aduan atau keluhan Anda"
+            class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:outline-none"></textarea>
+        </div>
+
+        <!-- Tombol Kirim -->
+        <div class="text-center">
+          <button type="submit"
+            class="bg-orange-700 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:bg-orange-800 transition-colors duration-300">
+            Kirim Aduan
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+
   
   <!-- ==================== Footer ==================== -->
-  <footer id="kontak" class="bg-orange-800 text-white py-8">
-    <div class="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-6">
-      <!-- Kolom 1: Profil Kota -->
-      <div class="text-left">
-        <div class="flex items-center space-x-2 mb-4">
-          <img src="https://via.placeholder.com/40x40/fff/000?text=Logo" alt="Logo Kota Mojokerto" class="h-10 w-10">
-          <h4 class="text-xl font-bold">Kota Mojokerto</h4>
-        </div>
-        <p class="text-sm mb-2">
-          Kota Mojokerto adalah sebuah kota di Provinsi Jawa Timur, Indonesia.
-          Kota ini terletak 50 km barat daya Surabaya.
-        </p>
-        <p class="text-sm">
-          Jl. Gajah Mada, No. 145, Kota Mojokerto
-          Jawa Timur
-        </p>
-      </div>
-
-      <!-- Kolom 2: Peta -->
-      <div class="text-left">
-        <h4 class="text-xl font-bold mb-4">Peta Lokasi</h4>
-        <div class="h-40 bg-gray-700 rounded-lg overflow-hidden">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15796.883906161947!2d112.44390666014234!3d-7.46820256242378!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e780d603a129d5b%3A0x6b44a49c4021a8f9!2sMojokerto%2C%20Kec.%20Prajurit%20Kulon%2C%20Kota%20Mojokerto%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1695420348749!5m2!1sid!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-      </div>
-
-      <!-- Kolom 3: Statistik dan Newsletter -->
-      <div class="text-left">
-        <h4 class="text-xl font-bold mb-4">Statistik & Berita</h4>
-        <p class="text-3xl font-bold text-yellow-300">1,706,900</p>
-        <p class="text-sm mb-4">TOTAL PENGUNJUNG</p>
-        
-        <p class="text-sm mb-2">Daftar untuk mendapatkan berita terbaru:</p>
-        <form class="flex">
-          <input type="email" placeholder="Enter your Email" class="px-4 py-2 w-full rounded-l-md text-gray-800 focus:outline-none">
-          <button type="submit" class="bg-yellow-500 text-black font-semibold px-4 py-2 rounded-r-md hover:bg-yellow-600 transition-colors">
-            Subscribe
-          </button>
-        </form>
-      </div>
-
-      <!-- Kolom 4: Media Sosial -->
-      <div class="text-left">
-        <h4 class="text-xl font-bold mb-4">Ikuti Kami</h4>
-        <div class="flex flex-col space-y-2">
-          <a href="#" class="flex items-center space-x-2 text-sm hover:text-yellow-300">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" class="h-5 w-5"><path d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h352a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48zm-48.9 158.8H344c10-1 14 15 0 15h-24v73h-58v-73h-24c-10-1-14 15 0 15h24v-64c0-21 16-36 36-36h21c10-1 14 15 0 15h-21c-4 0-6 2-6 6v28zM312 256v96a16 16 0 0 1-16 16h-48a16 16 0 0 1-16-16v-96a16 16 0 0 1 16-16h48a16 16 0 0 1 16 16zm-176-16h-58v73h-24c-10-1-14 15 0 15h24v-73h24c10-1 14 15 0 15zM96 256v96a16 16 0 0 1-16 16h-48a16 16 0 0 1-16-16v-96a16 16 0 0 1 16-16h48a16 16 0 0 1 16 16z"/></svg>
-            <span>Facebook</span>
-          </a>
-          <a href="#" class="flex items-center space-x-2 text-sm hover:text-yellow-300">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" class="h-5 w-5"><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm-45.7 33.6c-24.5-5.9-49.3-8.8-74.8-8.8-15.4 0-30.8 1.4-45.9 4.2-12.8 2.4-25.2 5.5-37.4 9.4-4.8 1.5-9.6 3.1-14.4 4.8-.8.3-1.6.6-2.4 1-5.7 2.4-11.2 5.1-16.7 8-1.6.9-3.2 1.8-4.8 2.8-5.3 3.5-10.4 7.4-15.5 11.6l-3.3 2.9-1.9 1.7c-.7.6-1.4 1.2-2.1 1.8-2 1.9-3.9 3.9-5.7 6.1-1.7 2-3.4 4.1-5 6.2-2.3 3.1-4.6 6.3-6.7 9.6-1.5 2.4-2.9 4.8-4.3 7.3-1.9 3.4-3.7 6.8-5.3 10.4-1.2 2.7-2.3 5.4-3.4 8.2-1.3 3.4-2.6 6.8-3.7 10.3-1.1 3.5-2.2 7-3.1 10.6-.7 2.8-1.4 5.6-2 8.4-.7 3.3-1.4 6.7-1.9 10.1-.4 3.4-1.2 7-1.2 10.4 0 13.5 8.1 27.2 24.3 36.3 33.7 19.3 72 29.8 112 29.8 26.6 0 52.8-3.9 77.4-11.6 4.7-1.5 9.4-3.1 14.1-4.8 1.2-.4 2.4-.8 3.5-1.2 5.7-1.9 11.2-4.1 16.7-6.5 1.7-.8 3.4-1.6 5-2.5 5.3-3.1 10.5-6.6 15.6-10.4l3.3-2.6 1.9-1.5c.6-.5 1.2-1 1.8-1.6 2.1-1.8 4.1-3.6 6-5.6 1.7-1.9 3.3-3.8 4.9-5.9 2.5-3.1 4.9-6.3 7-9.7 1.5-2.3 2.9-4.7 4.2-7.1 2.2-3.4 4.3-6.8 6-10.4 1.3-2.7 2.5-5.5 3.6-8.3 1.2-3.5 2.2-7 3-10.6.7-2.7 1.3-5.5 1.8-8.3.6-3.3 1-6.7 1-10.2-.1-13.4-8.2-27.1-24.5-36.2zm-128.3-239.5c-42.4 0-77.9 17.5-103 45.4-25.1 28-39 65.5-39 107.1 0 15.6 1.8 30.8 5.4 45.4 4.3 17.6 10.9 34.6 20.3 50.8 9.3 16.2 20.5 31.4 33.4 45.4 1.7 1.9 3.4 3.9 5.2 5.8 4 4.3 8.3 8.4 12.7 12.5l2 1.9 3.3 3c4.7 4.3 9.6 8.4 14.7 12.4 1.1.8 2.2 1.6 3.4 2.4 4.7 3.2 9.7 6.2 14.7 9.1 1.2.7 2.5 1.4 3.7 2 4.4 2.6 9 5 13.7 7.2 1.8.8 3.7 1.6 5.5 2.3 4.8 1.9 9.8 3.7 14.9 5.2 1 .3 2 .6 3 .9 4.7 1.3 9.5 2.4 14.3 3.3 1.1.2 2.2.3 3.4.4 1.7.2 3.4.3 5.2.3 2.8 0 5.6-.1 8.4-.3 15.1-1.3 29.8-4.4 44-9.3 2.4-.8 4.7-1.6 7-2.6 6.3-2.8 12.4-6 18.5-9.6 2.3-1.4 4.6-2.9 6.8-4.5 4.3-3.2 8.5-6.6 12.6-10.1l3.3-2.8 1.9-1.6c.7-.6 1.3-1.2 2-1.9 2-1.7 4-3.5 5.9-5.5 1.7-1.9 3.4-3.8 5-5.9 2.4-3.1 4.7-6.3 6.9-9.6 1.6-2.4 3-4.8 4.4-7.3 2-3.4 3.7-6.8 5.3-10.4 1.2-2.7 2.3-5.4 3.4-8.2 1.3-3.4 2.6-6.8 3.7-10.3 1.1-3.5 2.2-7 3.1-10.6.7-2.8 1.4-5.6 2-8.4.7-3.3 1.4-6.7 1.9-10.1.4-3.4 1.2-7 1.2-10.4 0-38.4-15.6-74.8-45.4-100.9C338.4 50.4 286.9 32 224 32zM128 128a96 96 0 1 1 192 0 96 96 0 1 1-192 0z"/></svg>
-            <span>Instagram</span>
-          </a>
-        </div>
-      </div>
-    </div>
+<footer id="kontak" class="bg-orange-800 text-white py-8">
+  <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-6">
     
-    <div class="bg-gray-900 text-center text-sm py-4">
-      <p>&copy; 2025 All Rights Reserved By Diskominfo Kota Mojokerto.</p>
+    <!-- Kolom 1: Profil Kota -->
+    <div class="text-left">
+      <div class="flex items-center space-x-2 mb-4">
+        <img src="a1ee3d6283faf8ea08c97a0ec6b10d81.png" alt="Logo Kota Mojokerto" class="h-10 w-10">
+        <h4 class="text-xl font-bold">Kota Mojokerto</h4>
+      </div>
+      <p class="text-sm">
+        Kota Mojokerto adalah sebuah kota di Provinsi Jawa Timur, Indonesia, yang dijuluki sebagai "Kota Onde-Onde" karena makanan khasnya yang terkenal. Terletak sekitar 50 km barat daya Surabaya, kota ini merupakan bagian dari kawasan metropolitan Surabaya dan memiliki luas wilayah 16,47 km².
+      </p>
     </div>
-  </footer>
+
+    <!-- Kolom 2: Peta Lokasi -->
+    <div class="text-left">
+      <h4 class="text-xl font-bold mb-4">Peta Lokasi</h4>
+      <div class="h-40 bg-gray-700 rounded-lg overflow-hidden">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15796.883906161947!2d112.44390666014234!3d-7.46820256242378!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e780d603a129d5b%3A0x6b44a49c4021a8f9!2sMojokerto%2C%20Kec.%20Prajurit%20Kulon%2C%20Kota%20Mojokerto%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1695420348749!5m2!1sid!2sid" 
+          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+
+    <!-- Kolom 3: Media Sosial -->
+    <div class="text-left">
+      <h4 class="text-xl font-bold mb-4">Ikuti Kami</h4>
+      <div class="flex flex-col space-y-2">
+        <a href="#" class="flex items-center space-x-2 text-sm hover:text-yellow-300">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" class="h-5 w-5">
+            <path d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h352a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"/>
+          </svg>
+          <span>Facebook</span>
+        </a>
+        <a href="#" class="flex items-center space-x-2 text-sm hover:text-yellow-300">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" class="h-5 w-5">
+            <path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128z"/>
+          </svg>
+          <span>Instagram</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+  
+  <div class="bg-orange-800 text-center text-sm py-4 mt-8">
+    <p>&copy; 2025 All Rights Reserved By Diskominfo Kota Mojokerto.</p>
+  </div>
+</footer>
+
 
   <!-- ==================== Chat Assistant Feature ==================== -->
   <!-- Floating Chat Button -->
@@ -546,6 +713,16 @@
     });
 
   </script>
+
+        <script>
+          const menuToggle = document.getElementById("menu-toggle");
+          const mobileMenu = document.getElementById("mobile-menu");
+
+          menuToggle.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+          });
+        </script>
+
 
   <script>
     const dataStunting = {
